@@ -4,7 +4,7 @@
 
 <p align="center">
 Jocuri de <b>atenție</b> și <b>memorie</b> pentru copiii din clasa pregătitoare, pe tabletă.<br/>
-Proiect pentru disciplina <i>Interacțiune Om-Calculator</i>, 2025–2026.
+Proiect pentru disciplina <i>Interacțiune Om-Calculator</i>, 2026–2027.
 </p>
 
 <p align="center"><b>▶ Aplicația online: https://prichitech.github.io/prichitech/</b></p>
