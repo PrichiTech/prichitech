@@ -1,0 +1,65 @@
+.board {
+  --size: min(calc((100vw - 120px) / var(--cols) - 20px), calc((100vh - 200px) / 2.7));
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--size));
+  gap: 20px;
+}
+
+.slot {
+  display: grid;
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: none;
+  background: none;
+  perspective: 800px;
+}
+
+.back,
+.front {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 5px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backface-visibility: hidden;
+  transition: transform 0.35s;
+}
+
+.back {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--blue),
+    var(--blue) 14px,
+    #4cb5d4 14px,
+    #4cb5d4 28px
+  );
+  color: #fff;
+  font-size: calc(var(--size) * 0.45);
+  font-weight: 700;
+  -webkit-text-stroke: 3px var(--ink);
+}
+
+.front {
+  background: var(--card);
+  font-size: calc(var(--size) * 0.55);
+  transform: rotateY(180deg);
+}
+
+.faceUp .back {
+  transform: rotateY(180deg);
+}
+
+.faceUp .front {
+  transform: rotateY(0);
+}
+
+.found .front {
+  background: #d8f3dc;
+  border-color: var(--green);
+}

@@ -1,0 +1,42 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1000px;
+}
+
+.item {
+  width: 150px;
+  height: 150px;
+  border: 5px solid var(--ink);
+  border-radius: 30px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-size: 96px;
+  line-height: 1;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+
+.item:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.correct {
+  background: #d8f3dc;
+  border-color: var(--green);
+}
+
+.faded {
+  opacity: 0.3;
+}
