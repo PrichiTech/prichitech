@@ -4,7 +4,7 @@
 
 <p align="center">
 Jocuri de <b>atenție</b> și <b>memorie</b> pentru copiii din clasa pregătitoare, pe tabletă.<br/>
-Proiect pentru disciplina <i>Interacțiune Om-Calculator</i>, 2025–2026.
+Proiect pentru disciplina <i>Interacțiune Om-Calculator</i>, 2026–2027.
 </p>
 
 <p align="center"><b>▶ Aplicația online: https://prichitech.github.io/prichitech/</b></p>
@@ -61,5 +61,4 @@ Jocurile se înregistrează **automat**: un folder nou în `src/games/` apare si
 - [Cum contribui (Git pas cu pas)](CONTRIBUTING.md)
 - [Arhitectura și contractul unui joc](docs/ARHITECTURA.md)
 - [Reguli de design pentru copii](docs/REGULI-UX.md)
-- [Plan, roluri și calendar](docs/PLAN-ECHIPA.md)
 - [Toate documentele pentru evaluare](docs/README.md)

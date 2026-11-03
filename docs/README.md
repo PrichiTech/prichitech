@@ -14,7 +14,6 @@ Documente tehnice:
 
 - [Arhitectura](ARHITECTURA.md)
 - [Reguli de design pentru copii](REGULI-UX.md)
-- [Plan, roluri și calendar](PLAN-ECHIPA.md)
 
 ## Decizii de design înregistrate
 
