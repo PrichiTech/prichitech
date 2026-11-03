@@ -1,0 +1,20 @@
+name: 🐞 Problemă
+description: Ceva nu merge cum trebuie
+labels: ['bug']
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Ce s-a întâmplat
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pașii ca să se repete
+      placeholder: "1. Deschid jocul Perechi\n2. Ating de două ori repede același cartonaș\n3. ..."
+  - type: input
+    id: device
+    attributes:
+      label: Dispozitiv și browser
+      placeholder: Ex. tableta școlii (Lenovo, Android 13), Chrome

@@ -1,0 +1,34 @@
+name: 🎮 Joc nou
+description: Propunere sau sarcină pentru un joc nou
+labels: ['joc']
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Numele folderului
+      description: Litere mici, fără diacritice, cu „-”. Ex. ce-a-disparut
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categorie
+      options: [memorie, atentie, numere, litere]
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Ce face copilul
+      description: Descrieți o rundă de joc, pas cu pas.
+    validations:
+      required: true
+  - type: textarea
+    id: levels
+    attributes:
+      label: Cele 3 niveluri de dificultate
+  - type: textarea
+    id: source
+    attributes:
+      label: De unde vine ideea
+      description: Ex. „jocul fizic primit de la învățătoare pe 10 nov” (atașați poze)

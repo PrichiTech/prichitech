@@ -1,0 +1,20 @@
+name: 🍎 Feedback de la învățătoare
+description: O observație sau o cerere de la client
+labels: ['feedback-client']
+body:
+  - type: input
+    id: date
+    attributes:
+      label: Data sesiunii
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Ce a spus
+    validations:
+      required: true
+  - type: textarea
+    id: action
+    attributes:
+      label: Ce schimbăm
