@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#fff8e7"/>
+  <g transform="translate(106 96) scale(2.5)">
+  <line x1="60" y1="24" x2="60" y2="10" stroke="#2b2d42" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="60" cy="9" r="7" fill="#ef6f6c" stroke="#2b2d42" stroke-width="3"/>
+  <rect x="6" y="50" width="14" height="26" rx="7" fill="#219ebc" stroke="#2b2d42" stroke-width="3"/>
+  <rect x="100" y="50" width="14" height="26" rx="7" fill="#219ebc" stroke="#2b2d42" stroke-width="3"/>
+  <rect x="16" y="24" width="88" height="80" rx="32" fill="#ffb703" stroke="#2b2d42" stroke-width="4"/>
+  <rect x="28" y="36" width="64" height="56" rx="22" fill="#fff8e7"/>
+  <circle cx="46" cy="56" r="8" fill="#2b2d42"/>
+  <circle cx="74" cy="56" r="8" fill="#2b2d42"/>
+  <circle cx="49" cy="53" r="2.5" fill="#fff"/>
+  <circle cx="77" cy="53" r="2.5" fill="#fff"/>
+  <ellipse cx="36" cy="70" rx="5" ry="3" fill="#ff9aa2"/>
+  <ellipse cx="84" cy="70" rx="5" ry="3" fill="#ff9aa2"/>
+  <path d="M48 68 Q60 79 72 68" fill="none" stroke="#2b2d42" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+{
+  "name": "prichitech",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host",
+    "lint": "oxlint",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "check:boundaries": "node scripts/check-boundaries.mjs",
+    "check": "npm run lint && npm run typecheck && npm run check:boundaries && npm run test",
+    "format": "prettier --write .",
+    "new-game": "node scripts/new-module.mjs game",
+    "new-panel": "node scripts/new-module.mjs panel"
+  },
+  "dependencies": {
+    "@fontsource/andika": "^5.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.89.0",
+    "prettier": "^3.9.10",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.5",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.1.0"
+  },
+  "description": "Jocuri de atenție și memorie pentru clasa pregătitoare",
+  "engines": {
+    "node": ">=20"
+  }
+}
