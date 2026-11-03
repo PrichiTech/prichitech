@@ -1,0 +1,306 @@
+/* Ecranul de start */
+.home {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 32px 32px;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.home-logo {
+  flex: 1;
+  margin: 0;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.home-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 240px));
+  gap: 28px;
+  align-content: center;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.home-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 24px;
+  color: var(--muted);
+}
+
+.tile {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 5px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.12s;
+}
+
+.tile:active {
+  transform: translateY(5px) scale(0.98);
+  box-shadow: none;
+}
+
+.tile-icon {
+  font-size: 96px;
+  line-height: 1;
+}
+
+/* Numele e pentru învățătoare, de aceea e mic. */
+.tile-label {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.teacher-lock {
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 30px;
+  opacity: 0.35;
+  position: relative;
+}
+
+.teacher-lock.is-holding {
+  opacity: 1;
+}
+
+.teacher-lock.is-holding::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 5px solid var(--blue);
+  clip-path: inset(0 0 0 0);
+  animation: hold-fill 2s linear forwards;
+}
+
+@keyframes hold-fill {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Rama jocurilor și panourilor */
+.host,
+.panel-host {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.host {
+  background: color-mix(in srgb, var(--accent) 22%, var(--bg));
+}
+
+.host-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+}
+
+.host-icon {
+  font-size: 56px;
+}
+
+.host-spacer {
+  width: 76px;
+}
+
+.host-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 8px 24px 24px;
+  overflow: hidden;
+}
+
+.panel-title {
+  flex: 1;
+  margin: 0;
+  font-size: 34px;
+  text-align: center;
+}
+
+.panel-stage {
+  overflow: auto;
+  padding: 8px 32px 32px;
+}
+
+/* Ecranul de final */
+.result-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: rgba(43, 45, 66, 0.45);
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 56px 36px;
+  border: 5px solid var(--ink);
+  border-radius: 40px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+.result-title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.result-actions {
+  display: flex;
+  gap: 40px;
+  margin-top: 12px;
+}
+
+/* Ecran de eroare */
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.error-text {
+  font-size: 28px;
+  margin: 0;
+}
+
+/* PIN */
+.pin-gate {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+}
+
+.pin-gate h1,
+.pin-gate p {
+  margin: 0;
+}
+
+.pin-dots {
+  display: flex;
+  gap: 18px;
+  margin: 8px 0;
+}
+
+.pin-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+}
+
+.pin-dot--on {
+  background: var(--ink);
+}
+
+.pin-error {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.pin-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 84px);
+  gap: 14px;
+}
+
+.pin-key {
+  height: 72px;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  background: var(--card);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.pin-key:active {
+  background: var(--yellow);
+}
+
+.pin-cancel {
+  margin-top: 8px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.pin-help {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* Mesaj „rotește tableta” */
+.rotate-hint {
+  display: none;
+}
+
+@media (orientation: portrait) and (pointer: coarse) {
+  .rotate-hint {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background: var(--bg);
+  }
+
+  .rotate-hint-icon {
+    font-size: 120px;
+    animation: rotate-tablet 2s ease-in-out infinite;
+  }
+
+  .rotate-hint-arrow {
+    font-size: 80px;
+  }
+}
+
+@keyframes rotate-tablet {
+  0%,
+  20% {
+    transform: rotate(0);
+  }
+  60%,
+  100% {
+    transform: rotate(-90deg);
+  }
+}

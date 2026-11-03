@@ -1,0 +1,58 @@
+:root {
+  --bg: #fff8e7;
+  --card: #ffffff;
+  --ink: #2b2d42;
+  --muted: #6c6f80;
+  --yellow: #ffb703;
+  --blue: #219ebc;
+  --green: #52b788;
+  --red: #ef6f6c;
+  --purple: #9b5de5;
+  --pink: #f15bb5;
+  --radius: 28px;
+  --shadow: 0 6px 0 rgba(43, 45, 66, 0.18);
+  /* Andika: font gândit pentru copiii care învață să citească (litere „de tipar”). */
+  font-family: 'Andika', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  user-select: auto;
+}
+
+:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 3px;
+}

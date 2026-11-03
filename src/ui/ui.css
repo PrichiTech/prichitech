@@ -1,0 +1,197 @@
+/* Butoane rotunde mari */
+.ui-icon-btn {
+  display: grid;
+  place-items: center;
+  border: 4px solid var(--ink);
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: transform 0.1s;
+}
+
+.ui-icon-btn:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.ui-icon-btn--md {
+  width: 76px;
+  height: 76px;
+  font-size: 38px;
+}
+
+.ui-icon-btn--lg {
+  width: 112px;
+  height: 112px;
+  font-size: 56px;
+}
+
+/* Stele */
+.ui-stars {
+  display: flex;
+  gap: 12px;
+}
+
+.ui-star {
+  font-size: 84px;
+  line-height: 1;
+  color: #e3dccb;
+  -webkit-text-stroke: 3px var(--ink);
+}
+
+.ui-star--on {
+  color: var(--yellow);
+  animation: ui-pop 0.5s both;
+}
+
+/* Buline de progres */
+.ui-dots {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.ui-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+  background: var(--card);
+  transition: background 0.3s;
+}
+
+.ui-dot--done {
+  background: var(--green);
+}
+
+.ui-dot--current {
+  background: var(--yellow);
+  animation: ui-bounce 1.2s infinite;
+}
+
+/* Mânuța de indicație */
+.ui-taphint {
+  position: relative;
+  display: grid;
+}
+
+.ui-taphint-hand {
+  position: absolute;
+  right: -10px;
+  bottom: -28px;
+  font-size: 64px;
+  pointer-events: none;
+  animation: ui-tap 1.1s ease-in-out infinite;
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25));
+  z-index: 5;
+}
+
+/* Confetti */
+.ui-confetti {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.ui-confetti span {
+  position: absolute;
+  top: -20px;
+  width: 14px;
+  height: 22px;
+  border-radius: 4px;
+  animation-name: ui-fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+/* Animații de folosit în jocuri: className="ui-pop" etc. */
+.ui-pop {
+  animation: ui-pop 0.45s both;
+}
+
+.ui-shake {
+  animation: ui-shake 0.45s both;
+}
+
+.ui-bounce {
+  animation: ui-bounce 1.2s infinite;
+}
+
+.ui-float {
+  animation: ui-float 3s ease-in-out infinite;
+}
+
+@keyframes ui-pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ui-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-12px);
+  }
+  40%,
+  80% {
+    transform: translateX(12px);
+  }
+}
+
+@keyframes ui-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes ui-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(3deg);
+  }
+}
+
+@keyframes ui-tap {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-10px, -14px) scale(0.92);
+  }
+}
+
+@keyframes ui-fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-float,
+  .ui-bounce,
+  .ui-dot--current {
+    animation: none;
+  }
+}
