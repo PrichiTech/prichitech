@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import {
   playSound,
   randomInt,
@@ -120,7 +120,10 @@ export function CountingGame({ difficulty, onFinish }: GameProps) {
     <div className={styles.layout}>
       <ProgressDots total={rounds} done={roundNumber + (solved ? 1 : 0)} />
 
-      <div className={styles.objects}>
+      <div
+        className={styles.objects}
+        style={{ '--cols': Math.min(round.count, 5) } as CSSProperties}
+      >
         {Array.from({ length: round.count }, (_, index) => (
           <button
             key={`${roundNumber}-${index}`}
