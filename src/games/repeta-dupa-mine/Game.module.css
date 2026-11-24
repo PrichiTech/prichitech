@@ -1,0 +1,98 @@
+/* Clasele de aici sunt doar pentru acest joc (CSS Modules):
+   nu pot afecta alte jocuri. */
+
+.layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+/* Panoul cu forme geometrice. */
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 920px;
+  padding: 20px;
+}
+
+.button {
+  display: grid;
+  place-items: center;
+  width: 176px;
+  height: 176px;
+  padding: 12px;
+  border: 5px solid var(--ink);
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.15s,
+    background 0.15s,
+    box-shadow 0.15s;
+}
+
+.shape {
+  width: 100%;
+  height: 100%;
+  transition:
+    filter 0.15s,
+    opacity 0.15s;
+}
+
+/* În timpul prezentării, formele inactive sunt estompate. */
+.watching .button:not(.lit) .shape {
+  opacity: 0.45;
+}
+
+/* Forma iluminată se mărește și primește un contur luminos. */
+.lit {
+  transform: scale(1.12);
+  background: #fff3bf;
+  box-shadow: 0 0 24px 10px rgba(255, 183, 3, 0.7);
+}
+
+.lit .shape {
+  filter: brightness(1.15);
+}
+
+/* Feedback imediat la atingere. */
+.button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+/* Adaptare pentru tabletele cu ecrane mai mici. */
+@media (max-height: 700px) {
+  .layout {
+    gap: 16px;
+  }
+
+  .board {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .button {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .shape {
+    transition: none;
+  }
+}
