@@ -1,4 +1,3 @@
-
 .layout {
   width: 100%;
   height: 100%;
@@ -8,10 +7,10 @@
   gap: 24px;
 }
 
-/* Obiectele sunt aranjate in randuri de cate 5. */
+/* Obiectele sunt aranjate in randuri de cate 5 (--cols vine din Game.tsx, ca sa fie centrate). */
 .objects {
   display: grid;
-  grid-template-columns: repeat(5, 100px);
+  grid-template-columns: repeat(var(--cols), 100px);
   justify-content: center;
   align-content: center;
   gap: 12px;
@@ -33,7 +32,9 @@
   box-shadow: var(--shadow);
   font-size: 64px;
   line-height: 1;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .object:active:not(:disabled) {
@@ -63,9 +64,23 @@
   font-weight: 700;
 }
 
-/* Obiectele sar succesiv dupa raspunsul corect. */
+/*
+ * Obiectele sar succesiv dupa raspunsul corect.
+ * Animatiile sunt definite aici: intr-un .module.css, `animation: ui-bounce` nu gaseste
+ * animatia globala (numele se schimba automat), asa ca nu ar porni.
+ */
 .celebrate {
-  animation: ui-bounce 0.5s ease-in-out both;
+  animation: jump 0.5s ease-in-out both;
+}
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
 }
 
 /* Cele trei variante de raspuns. */
@@ -101,7 +116,19 @@
 .correct {
   background: #d8f3dc;
   border-color: var(--green);
-  animation: ui-pop 0.45s both;
+  animation: pop 0.45s both;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .object:disabled,
@@ -116,7 +143,7 @@
   }
 
   .objects {
-    grid-template-columns: repeat(5, 80px);
+    grid-template-columns: repeat(var(--cols), 80px);
     gap: 8px;
   }
 
