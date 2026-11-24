@@ -13,18 +13,14 @@ import {
 import { ProgressDots, TapHint } from '@/ui'
 import styles from './Game.module.css'
 
-/** Literele disponibile, de actualizat după discuția cu învățătoarea. */
-const KNOWN_LETTERS = [
-  'A', 'Ă', 'Â', 'B', 'C', 'D', 'E', 'F',
-  'G', 'H', 'I', 'Î', 'J', 'K', 'L', 'M',
-  'N', 'O', 'P', 'Q', 'R', 'S', 'Ș', 'T',
-  'Ț', 'U', 'V', 'W', 'X', 'Y', 'Z',
-]
+/**
+ * Doar literele pe care copiii le-au învățat deja (de actualizat după discuția cu învățătoarea).
+ * Fără diacritice: semnul de sub Ș/Ț și căciula lui Ă/Â/Î abia se văd în balon.
+ */
+const KNOWN_LETTERS = ['A', 'E', 'I', 'O', 'U', 'M']
 
+/** Perechi care seamănă; când se adaugă litere noi, se adaugă și perechile lor. */
 const SIMILAR = [
-  ['A', 'Ă'],
-  ['A', 'Â'],
-  ['Ă', 'Â'],
   ['A', 'M'],
   ['A', 'V'],
   ['B', 'R'],
@@ -32,25 +28,15 @@ const SIMILAR = [
   ['D', 'O'],
   ['E', 'F'],
   ['I', 'L'],
-  ['I', 'Î'],
   ['M', 'N'],
-  ['M', 'W'],
   ['O', 'Q'],
   ['O', 'U'],
   ['P', 'R'],
-  ['S', 'Ș'],
-  ['T', 'Ț'],
   ['U', 'V'],
-  ['V', 'W'],
 ]
 
 const ROUNDS = { 1: 4, 2: 5, 3: 6 } as const
 const BALLOONS = { 1: 4, 2: 6, 3: 8 } as const
-const LETTER_LIMITS = {
-  1: 8,
-  2: 16,
-  3: KNOWN_LETTERS.length,
-} as const
 
 const HINT_AFTER_MS = 7000
 
@@ -96,11 +82,10 @@ function makeRound(
 }
 
 function makeRounds(difficulty: Difficulty) {
-  const availableLetters = KNOWN_LETTERS.slice(0, LETTER_LIMITS[difficulty])
-  const targets = shuffle(availableLetters)
+  const targets = shuffle(KNOWN_LETTERS)
 
   return Array.from({ length: ROUNDS[difficulty] }, (_, index) =>
-    makeRound(difficulty, targets[index % targets.length], availableLetters),
+    makeRound(difficulty, targets[index % targets.length], KNOWN_LETTERS),
   )
 }
 
@@ -116,7 +101,7 @@ export function LetterGame({ difficulty, onFinish }: GameProps) {
   const [popped, setPopped] = useState<number[]>([])
   const [gone, setGone] = useState<number[]>([])
   const [wrongAttempts, setWrongAttempts] = useState<Record<number, number>>({})
-  const [showHint, setShowHint] = useState(true)
+  const [showHint, setShowHint] = useState(false)
   const [activity, setActivity] = useState(0)
 
   const mistakes = useRef(0)
